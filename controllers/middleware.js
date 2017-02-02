@@ -12,13 +12,21 @@ module.exports = {
        'Content-Security-Policy': "default-src 'self' devmountain.github.io"
     });
     next();
-},
+   },
 
   generateId: function(req, res, next) {
-     console.log(skills);
      req.body.id = ++skills.length;
-     console.log('middleware generateId: ',req.body.id);
+
 
      next();
- }
+   },
+
+   verifyUser: function(req, res, next){
+      console.log('verifyUser function with params ', req.params);
+      if (req.params.username === 'khayyam' && req.params.password === 'password') {
+         console.log('access granted')
+         next();
+      }
+      res.status(403).json('Access Denied');
+   }
 }

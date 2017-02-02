@@ -89,6 +89,12 @@ module.exports = {
         }
    },
 
+   getSecrets: function(req, res) {
+      console.log('getSecrets function with params ', req.params);
+      res.status(200).json('Secret file accessed!')
+   },
+
+
 
 /* Updating or Adding Information  */
 

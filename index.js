@@ -25,6 +25,8 @@ app.get('/restaurants/:name', mainCtrl.getRestaurantsByName)
 
 app.get('/skills', mainCtrl.getSkillz);
 
+app.get('/secrets/:username/:password', middleware.verifyUser, mainCtrl.getSecrets)
+
 /* PUT - modifying information  */
 
 app.put('/name', mainCtrl.putName);
